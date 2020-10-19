@@ -4,7 +4,7 @@ import BlogCard from '../BlogCard/BlogCard'
 const BlogList = () => {
 
     return (
-        <div>
+        <div className="container">
             <BlogCard/>
         </div>
     )
