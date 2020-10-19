@@ -1,9 +1,12 @@
 import React from 'react'
+import BlogCard from '../BlogCard/BlogCard'
 
-export const BlogList = () => {
+const BlogList = () => {
+
     return (
         <div>
-            This is blog list
+            <BlogCard/>
         </div>
     )
 }
+export default BlogList

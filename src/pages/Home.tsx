@@ -1,9 +1,12 @@
 import React from 'react'
 
+import BlogList from "../components/BlogList/BlogList"
+
+
 export const Home = () => {
     return (
         <div>
-            This is home screen
+            <BlogList/>
         </div>
     )
 }
