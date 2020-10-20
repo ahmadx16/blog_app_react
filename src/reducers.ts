@@ -1,13 +1,18 @@
-const initialState:any[] = []
+const initialState: any[] = [];
 
-export const blogReducer = (state = initialState, action:any) => {
-
-    switch (action.type) {
-        case 'ADD_BLOG':
-            return [
-                action.payload, ...state
-            ]
-        default:
-            return state
-    }
+interface Action {
+  type: string;
+  payload: any;
 }
+
+export const blogReducer = (state = initialState, action: Action) => {
+  switch (action.type) {
+    case "ADD_BLOG":
+      return [action.payload, ...state];
+    case "GET_BLOGS":
+      return action.payload;
+    
+    default:
+      return state;
+  }
+};
