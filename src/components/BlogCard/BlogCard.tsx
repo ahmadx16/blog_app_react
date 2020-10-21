@@ -8,7 +8,15 @@ import { deleteBlog } from "../../services/blogAPI";
 import { deleteBlogAction } from "../../actions"
 
 
-const BlogCard = ({ blogId, title, markdown, date_created, deleteBlogAction }: any) => {
+interface BlogCardType {
+  blogId:string,
+  title:string,
+  date_created:string,
+  deleteBlogAction:any,
+
+}
+
+const BlogCard = ({ blogId, title, date_created, deleteBlogAction }: BlogCardType) => {
   let history = useHistory();
 
   const onClickViewMore = () => {
@@ -42,10 +50,7 @@ const BlogCard = ({ blogId, title, markdown, date_created, deleteBlogAction }: a
       </div>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <p className="card-text">
-          {markdown}
-          ...
-        </p>
+        
         <button className="btn btn-outline-primary" onClick={onClickViewMore}>
           View More...
         </button>

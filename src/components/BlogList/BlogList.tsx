@@ -10,7 +10,6 @@ const BlogList = ({ blogsData }: any) => {
           key={blogData.id}
           blogId={blogData.id}
           title={blogData.title}
-          markdown={blogData.blog_markdown}
           date_created={blogData.created}
         />
       );
