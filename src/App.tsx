@@ -6,6 +6,7 @@ import { createStore } from "redux";
 import Home from "./pages/Home";
 import BlogDetail from "./pages/BlogDetail";
 import AddNewBlog from "./pages/AddNewBlog";
+import EditBlog from "./pages/EditBlog";
 import Navbar from "./components/Navbar/Navbar";
 import { blogReducer } from "./reducers";
 
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/blog/:blogId" component={BlogDetail} />
           <Route exact path="/add-new-blog" component={AddNewBlog} />
+          <Route exact path="/edit-blog/:blogId" component={EditBlog} /> 
         </Switch>
       </Router>
     </Provider>

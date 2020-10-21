@@ -36,3 +36,26 @@ export const getBlogDetail = async (blogId:string) => {
         return handleErrors(err)
     }
 }
+
+export const updateBlog = async (blogId:string, title:string, blog_markdown:string ) => {
+
+    try {
+        const blogData ={title, blog_markdown}
+        const allBlogsData = await axios.patch("/"+blogId+"/",  blogData);
+        return allBlogsData.data
+
+    } catch (err) {
+        return handleErrors(err)
+    }
+}
+
+export const deleteBlog = async (blogId:string) => {
+
+    try {
+        const allBlogsData = await axios.delete("/"+blogId);
+        return allBlogsData.data
+
+    } catch (err) {
+        return handleErrors(err)
+    }
+}

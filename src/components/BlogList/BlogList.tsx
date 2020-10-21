@@ -3,7 +3,6 @@ import BlogCard from "../BlogCard/BlogCard";
 
 const BlogList = ({ blogsData }: any) => {
   let blogList = "There are no blogs yet!";
-  console.log(blogsData)
   if (blogsData) {
     blogList = blogsData.map((blogData: any) => {
       return (

@@ -1,14 +1,28 @@
 import React from "react";
-import TimeAgo from "react-timeago";
 import { useHistory } from "react-router-dom";
+import {connect} from 'react-redux'
 
-const BlogCard = ({ blogId, title, markdown, date_created }: any) => {
+import TimeAgo from "react-timeago";
+
+import { deleteBlog } from "../../services/blogAPI";
+import { deleteBlogAction } from "../../actions"
+
+
+const BlogCard = ({ blogId, title, markdown, date_created, deleteBlogAction }: any) => {
   let history = useHistory();
 
-  const onClickViewMore = (e: any) => {
-    e.preventDefault();
+  const onClickViewMore = () => {
     history.push("/blog/" + blogId);
   };
+
+  const onDeleteBlog = async() =>{
+    await deleteBlog(blogId)
+    deleteBlogAction(blogId)
+  }
+  const onEditClick = async() =>{
+    history.push("/edit-blog/"+blogId)
+  }
+  
 
   return (
     <div className="card mt-3">
@@ -16,10 +30,11 @@ const BlogCard = ({ blogId, title, markdown, date_created }: any) => {
         <div className="row">
           <div className="col-10">Featured</div>
           <div className="col-2">
-            <button className="btn btn-outline-danger">
+            <button className="btn btn-outline-danger" onClick={onDeleteBlog}>
               Delete
             </button>
-            <button className="btn btn-outline-info ml-2 ">
+
+            <button className="btn btn-outline-info ml-2" onClick={onEditClick}>
               Edit
             </button>
           </div>
@@ -42,4 +57,8 @@ const BlogCard = ({ blogId, title, markdown, date_created }: any) => {
   );
 };
 
-export default BlogCard;
+const mapDispatchToProps = {
+  deleteBlogAction
+}
+
+export default connect(null, mapDispatchToProps)(BlogCard);

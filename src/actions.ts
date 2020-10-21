@@ -16,3 +16,10 @@ export const getBlogs = (blogData: any): Action => {
     payload: blogData,
   };
 };
+
+export const deleteBlogAction = (blogId: any): Action => {
+  return {
+    type: "DELETE_BLOG",
+    payload: blogId,
+  };
+};
