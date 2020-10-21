@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import BlogList from "../components/BlogList/BlogList";
-import { getBlogs } from "../actions";
+import { getBlogsActions } from "../actions";
 import { getAllBlogsData } from "../services/blogAPI";
 
-export const Home = ({ blogState, getBlogs }: any) => {
+export const Home = ({ blogState, getBlogsActions }: any) => {
   useEffect(() => {
     getBlogData();
   }, []);
@@ -16,7 +16,7 @@ export const Home = ({ blogState, getBlogs }: any) => {
         alert(blogsData.error);
         return
     } 
-    getBlogs(blogsData);
+    getBlogsActions(blogsData);
   };
 
   return (
@@ -31,7 +31,7 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = {
-  getBlogs,
+  getBlogsActions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

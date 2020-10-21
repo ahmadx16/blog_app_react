@@ -61,6 +61,8 @@ The above command will start the development server on `http://localhost:3000`
 
 ## Troubleshooting
 
+Make sure [DRF backend server](https://github.com/ahmadx16/blog_app_server/tree/blog_server) is running in the background. 
+
 On running command `npm start` you may or may not get the error `Error: ENOSPC: System limit for number of file watchers reached` . It occurs when system file watching limit exceeds. You can simply fix this error either by using command `sudo npm start` or increasing the file watchers limit. Learn about how to increase file watchers on Ubuntu [here](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached)
 
 

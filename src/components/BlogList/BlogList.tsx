@@ -1,8 +1,12 @@
 import React from "react";
 import BlogCard from "../BlogCard/BlogCard";
 
-const BlogList = ({ blogsData }: any) => {
-  let blogList = "There are no blogs yet!";
+interface BlogsDataType {
+  blogsData: [{}];
+}
+
+const BlogList = ({ blogsData }: BlogsDataType) => {
+  let blogList = [<h2>There are currently no blogs. Add blogs for more</h2>];
   if (blogsData) {
     blogList = blogsData.map((blogData: any) => {
       return (
