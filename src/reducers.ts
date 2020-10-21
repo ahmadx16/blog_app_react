@@ -7,8 +7,6 @@ interface Action {
 
 export const blogReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case "ADD_BLOG":
-      return [action.payload, ...state];
     case "GET_BLOGS":
       return action.payload;
     case "DELETE_BLOG":

@@ -5,7 +5,11 @@ import BlogList from "../components/BlogList/BlogList";
 import { getBlogsActions } from "../actions";
 import { getAllBlogsData } from "../services/blogAPI";
 
-export const Home = ({ blogState, getBlogsActions }: any) => {
+interface HomeType {
+  blogState:[{}],
+  [key:string]:any
+}
+export const Home = ({ blogState, getBlogsActions }: HomeType) => {
   useEffect(() => {
     getBlogData();
   }, []);
