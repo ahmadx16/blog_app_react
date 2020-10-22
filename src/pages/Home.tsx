@@ -31,7 +31,7 @@ export const Home = ({ blogState, getBlogsActions }: HomeType) => {
 };
 
 const mapStateToProps = (state: any) => {
-  return { blogState: state };
+  return { blogState: state.blogReducer };
 };
 
 const mapDispatchToProps = {

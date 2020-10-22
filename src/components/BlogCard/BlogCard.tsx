@@ -1,36 +1,38 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 
 import TimeAgo from "react-timeago";
 
 import { deleteBlog } from "../../services/blogAPI";
-import { deleteBlogAction } from "../../actions"
-
+import { deleteBlogAction } from "../../actions";
 
 interface BlogCardType {
-  blogId:string,
-  title:string,
-  date_created:string,
-  deleteBlogAction:any,
-
+  blogId: string;
+  title: string;
+  date_created: string;
+  deleteBlogAction: any;
 }
 
-const BlogCard = ({ blogId, title, date_created, deleteBlogAction }: BlogCardType) => {
+const BlogCard = ({
+  blogId,
+  title,
+  date_created,
+  deleteBlogAction,
+}: BlogCardType) => {
   let history = useHistory();
 
   const onClickViewMore = () => {
     history.push("/blog/" + blogId);
   };
 
-  const onDeleteBlog = async() =>{
-    await deleteBlog(blogId)
-    deleteBlogAction(blogId)
-  }
-  const onEditClick = async() =>{
-    history.push("/edit-blog/"+blogId)
-  }
-  
+  const onDeleteBlog = async () => {
+    await deleteBlog(blogId);
+    deleteBlogAction(blogId);
+  };
+  const onEditClick = async () => {
+    history.push("/edit-blog/" + blogId);
+  };
 
   return (
     <div className="card mt-3">
@@ -50,7 +52,6 @@ const BlogCard = ({ blogId, title, date_created, deleteBlogAction }: BlogCardTyp
       </div>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        
         <button className="btn btn-outline-primary" onClick={onClickViewMore}>
           View More...
         </button>
@@ -63,7 +64,7 @@ const BlogCard = ({ blogId, title, date_created, deleteBlogAction }: BlogCardTyp
 };
 
 const mapDispatchToProps = {
-  deleteBlogAction
-}
+  deleteBlogAction,
+};
 
 export default connect(null, mapDispatchToProps)(BlogCard);

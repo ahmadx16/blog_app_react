@@ -12,7 +12,6 @@ import blogStore from "./store";
 
 function App() {
   
-
   return (
     <Provider store={blogStore}>
       <Router>
